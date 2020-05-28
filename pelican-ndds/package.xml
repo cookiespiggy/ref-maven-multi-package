@@ -1,0 +1,35 @@
+<!-- https://www.cnblogs.com/asfeixue/p/3626959.html -->
+<!--        https://blog.csdn.net/u010010606/article/details/79758030 -->
+<assembly>
+    <id>all</id>
+    <formats>
+        <format>dir</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>org.example:pelican-ndds</include>
+            </includes>
+            <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+        </dependencySet>
+    </dependencySets>
+
+    <moduleSets>
+        <moduleSet>
+            <useAllReactorProjects>true</useAllReactorProjects>
+            <includes>
+                <include>org.example:pelican-analysis</include>
+                <include>org.example:pelican-utils</include>
+            </includes>
+            <binaries>
+                <outputDirectory>lib</outputDirectory>
+                <unpack>false</unpack>
+                <includeDependencies>false</includeDependencies>
+            </binaries>
+        </moduleSet>
+    </moduleSets>
+</assembly>

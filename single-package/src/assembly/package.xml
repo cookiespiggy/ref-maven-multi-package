@@ -1,0 +1,47 @@
+<assembly>
+    <!--
+        最后打出来的zip包，全名为finalName+id.zip
+    -->
+    <id>bin</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <!--
+        format下 是否生成和项目名相同的根目录，默认为true
+    -->
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <!--
+                useProjectArtifact: 是否把本项目打进outputDirectory中，本项目依靠下面的fileSet打到外面去@a，或者再配置一个dependencySet@b
+            -->
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>corelib</outputDirectory>
+            <unpack>false</unpack>
+            <scope>compile</scope>
+        </dependencySet>
+
+        <!--@b 这样做不好，这样做的话，就是把所有的依赖又引入了一遍，但是加了include的话，就仅仅就include的了-->
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>org.example:single-package</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+
+    <!--
+    @a
+    <fileSets>
+        把项目自己编译出来的jar文件，打包进zip文件的根目录
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>ndds.jar</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    -->
+</assembly>

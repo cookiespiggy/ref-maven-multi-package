@@ -1,0 +1,32 @@
+<!--https://www.cnblogs.com/asfeixue/p/3626959.html-->
+<!--        https://blog.csdn.net/u010010606/article/details/79758030 -->
+<assembly>
+    <id>all</id>
+    <formats>
+        <format>dir</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>corelib</outputDirectory>
+            <unpack>false</unpack>
+            <scope>compile</scope>
+            <includes>
+                <include>org.example:pelican-analysis</include>
+                <include>org.example:pelican-utils</include>
+            </includes>
+        </dependencySet>
+
+        <!--@b 这样做不好，这样做的话，就是把所有的依赖又引入了一遍，但是加了include的话，就仅仅就include的了-->
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>org.example:pelican-ndds-another</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>

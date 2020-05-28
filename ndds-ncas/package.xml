@@ -1,0 +1,32 @@
+<assembly>
+    <id>all</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>/</outputDirectory>
+            <unpack>true</unpack>
+            <scope>compile</scope>
+            <includes>
+                <include>org.example:pelican-analysis</include>
+                <include>org.example:pelican-utils</include>
+            </includes>
+        </dependencySet>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>/</outputDirectory>
+            <unpack>true</unpack>
+            <includes>
+                <include>org.example:ndds-ncas</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>
+
+<!--        https://juejin.im/post/5e70ba4ff265da5734025dd1-->
+
+<!--        https://blog.csdn.net/wangming520liwei/article/details/80985749 如何取各个参数 如 工程名字 等等-->
